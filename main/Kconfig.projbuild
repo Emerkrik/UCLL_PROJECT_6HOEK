@@ -1,83 +1,20 @@
-menu "ProjConfig"
+menu "Example Configuration"
 
-    config GPIO_LED
-        int "GPIO_LEDS"
-        default 4
+    config ESP_WIFI_SSID
+        string "WiFi SSID"
+        default "myssid"
         help
-            Give the gpio pin number
+            SSID (network name) for the example to connect to.
 
-    config LEDS_COUNT
-        int "LEDS_COUNT"
-        default 6
-        help 
-            How many leds does the strip have
-
-    config FADING_SPEED
-        int "FADING_SPEED"
-        default 50
+    config ESP_WIFI_PASSWORD
+        string "WiFi Password"
+        default "mypassword"
         help
-            Set the speed for fading
+            WiFi password (WPA or WPA2) for the example to use.
 
-    config FADING_RGB_VALUE_r
-        int "RED_VALUE"
-        range 0 254
-        default 254
+    config ESP_MAXIMUM_RETRY
+        int "Maximum retry"
+        default 5
         help
-            Set the start value of red for fading mode
-
-    config FADING_RGB_VALUE_g
-        int "GREEN_VALUE"
-        range 0 254
-        default 0
-        help
-            Set the start value of green for fading mode
-
-    config FADING_RGB_VALUE_b
-        int "BLUE_VALUE"
-        range 0 254
-        default 0
-        help
-            Set the start value of blue for fading mode
-
-    config DIMMING_BRIGHTEN_FACTOR
-        int "DIMMING_BRIGHTEN_FACTOR"
-        range 1 9
-        default 7
-        help
-            Set the speed for dim of brighten the leds. In code this is / 10;
-
-
-
-endmenu
-
-menu "ir_config"
-    config GPIO_IR
-        int "GPIO_IR"
-        default 7
-        help
-            Give the gpio ir number
-    
-    config RESOLUTION_IR
-        int "resolution -> 1 tick = 1us"
-        default 1000000
-
-    config NEC_DECODE_MARGIN
-        int "Tolerance"
-        default 200
-            help
-                Tolerance for parsing RMT symbols into bit stream
-endmenu
-
-menu "touch_config"
-    config TOUCH_GPIO
-        int "TOUCH_GPIO"
-        default 4
-        help
-            Give the gpio ir number
-    
-    config TOUCH_THRESHOLD
-        int "TOUCH_THRESHOLD"
-        default 300
-
-
+            Set the Maximum retry to avoid station reconnecting to the AP unlimited when the AP is really inexistent.
 endmenu

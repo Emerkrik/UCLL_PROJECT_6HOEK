@@ -5,10 +5,7 @@
 cmake_minimum_required(VERSION 3.5)
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
-project(PROJECT_RGB_LED_WS 2812B)
+project(WebServerESP)
 
-
-
-
-# Voeg submappen toe als component
-set(EXTRA_COMPONENT_DIRS)
+# Set the partition table path
+set(PARTITION_TABLE "${CMAKE_SOURCE_DIR}/partitions.csv")
